@@ -1,0 +1,40 @@
+@media screen and (min-width:769px) {
+    .headline {
+        margin: 15px auto;
+        position: relative;
+        .logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 96px;
+            height: 84px;
+        }
+        .hd-text {
+            width: 960px;
+            margin: 0 auto;
+            font-size: 38px;
+            line-height: 76px;
+            padding-top: 10px;
+            text-align: center;
+            a {
+                color: #333;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:769px) {
+    .headline {
+        margin: 0.25rem auto;
+        width: 7rem;
+        overflow: hidden;
+        .logo {
+            display: none;
+        }
+        .hd-text {
+            font-size: 0.32rem;
+            line-height: 0.46rem;
+            width: 100%;
+        }
+    }
+}

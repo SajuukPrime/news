@@ -1,0 +1,91 @@
+@media screen and (min-width:769px) {
+    .sub-page {
+        width: 1200px;
+        margin: 20px auto 50px;
+        li {
+            @include clear-both;
+            padding: 0 0 20px 0;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 100%;
+        }
+        &-column {
+            font-size: 22px;
+            line-height: 26px;
+            border-left: 3px solid #5F81F6;
+            height: 26px;
+            padding-left: 8px;
+            margin: 0 0 25px 0;
+            font-weight: bold;
+            color: #333;
+        }
+        &-image {
+            width: 300px;
+            float: left;
+        }
+        &-text {
+            width: 865px;
+            float: right;
+        }
+        &-title {
+            font-size: 24px;
+            line-height: 40px;
+            width: 100%;
+            a {
+                color: #222;
+            }
+        }
+        &-summary {
+            font-size: 16px;
+            line-height: 28px;
+            color: #888;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .sub-page {
+        width: 7rem;
+        margin: 0 auto 0.5rem;
+        li {
+            @include clear-both;
+            border-bottom: 1px solid #e5e5e5;
+            width: 100%;
+            padding-bottom: 0.2rem;
+            margin-bottom: 0.2rem;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+        img {
+            width: 100%;
+        }
+        &-column {
+            width: 7rem;
+            margin: 0 auto;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.36rem;
+        }
+        &-image {
+            width: 2.3rem;
+            height: 1.3rem;
+            float: left;
+        }
+        &-text {
+            width: 4.2rem;
+            float: right;
+            display: flex;
+        }
+        &-title {
+            font-size: 0.32rem;
+            line-height: 0.46rem;
+            width: 100%
+        }
+        &-summary {
+            display: none;
+        }
+    }
+}
