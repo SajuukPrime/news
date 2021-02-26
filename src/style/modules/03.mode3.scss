@@ -1,0 +1,52 @@
+//mode-3
+.mode-3 {
+    width: 1200px;
+    @include clear-both;
+    .article-headline {
+        .article-item:first-child {
+            display: block;
+        }
+        .article_pic,
+        .article_pic img {
+            float: left;
+            width: 600px;
+            height: 340px;
+            margin-bottom: 20px;
+        }
+        .article_title {
+            width: 570px;
+            float: right;
+            font-size: 32px;
+            line-height: 44px;
+            margin-bottom: 15px;
+            a {
+                color: #333;
+            }
+        }
+        .article_summary {
+            width: 570px;
+            float: right;
+            margin-bottom: 15px;
+            @include summary_1
+        }
+    }
+    .article-common {
+        .article-item {
+            width: 570px;
+            float: right;
+        }
+        .article-item:nth-child(-n+4) {
+            display: block;
+        }
+        .article_title {
+            font-size: 20px;
+            line-height: 30px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .article_pic,
+        .article_summary {
+            display: none;
+        }
+    }
+}

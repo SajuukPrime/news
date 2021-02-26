@@ -1,0 +1,52 @@
+@media screen and (min-width:769px) {
+    .footer {
+        color: #999;
+        text-align: center;
+        background: url(./assets/bg_4.jpg) repeat;
+        font-size: 14px;
+        line-height: 100px;
+        span {
+            padding: 0 10px;
+        }
+    }
+    .bottom {
+        display: none;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .footer {
+        font-size: 0.2rem;
+        line-height: 0.4rem;
+        text-align: center;
+        padding: 0.4rem 0;
+        background: #eee;
+        color: #999;
+        span {
+            display: block;
+        }
+    }
+    .bottom {
+        display: flex;
+        width: 100%;
+        height: 1rem;
+        background: #4071CD;
+        justify-content: space-between;
+        font-size: 0.3rem;
+        line-height: 1rem;
+        color: #fff;
+        .logo_b {
+            padding: 0.2rem;
+            img {
+                height: 0.6rem;
+                width: auto;
+            }
+        }
+        a {
+            color: #fff;
+        }
+        .bottom-r {
+            padding-right: 0.2rem;
+        }
+    }
+}
