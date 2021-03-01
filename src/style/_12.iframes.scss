@@ -1,0 +1,13 @@
+@media screen and (min-width:769px) {
+    .iframe-elements {
+        width: 100%;
+        margin: 0 auto 20px;
+        clear: both
+    }
+}
+
+@media screen and (max-width:769px) {
+    .iframe-elements {
+        display: none;
+    }
+}

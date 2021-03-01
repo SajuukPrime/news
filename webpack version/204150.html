@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+        <FOUNDER-XY type="columnlist" data="{'columnid':[],'columntype':'self'}">
+            <#list columns as column>${column.name}_新闻中心_中国网</#list>
+        </FOUNDER-XY>
+    </title>
+    <base target="_blank">
+    <link rel="stylesheet" href="http://images.china.cn/images1/resource/styles/reset-1.0.css">
+    <link href="http://images.china.cn/images1/ch/2020newschina/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="top">
+        <a href="http://news.china.com.cn/">
+            <img src="http://images.china.cn/images1/ch/2020newschina/src/assets/bg_5.png" alt="">
+        </a>
+    </div>
+    <FOUNDER-XY type="articlelist" data="{'columnid':[],'articletype':'all','article_attr':'all','start':'0','count':'1'}">
+        <div class="banner" style="background-image:url(http://images.china.cn/site1000/2021-01/20/t2_(0X0X590X166)bb3c4572-3082-4cdb-a9e1-eb2e7855e4d1.jpg)">
+            <#list articles as article>
+            </#list>
+        </div>
+    </FOUNDER-XY>
+    <div class="page-default">
+
+        <FOUNDER-XY type="articlelist" data="{'columnid':[8021744],'articletype':'all','article_attr':'all','start':'0','count':'1'}">
+            <#list articles as article>
+                <div class="headline wrapper">
+                    <div class="logo"><img src="http://images.china.cn/images1/ch/2020newschina/src/assets/bg_3.png" alt=""></div>
+                    <div class="hd-text"><a href="${article.url}">${article.title}</a></div>
+                </div>
+            </#list>
+        </FOUNDER-XY>
+        <div class="wrapper">
+            <div class="list-left">
+                <FOUNDER-XY type="articlelist" data="{'columnid':[8021745],'articletype':'all','article_attr':'all','start':'0','count':'3'}">
+                    <#list articles as article>
+                        <#if article_index==0>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                        </#if>
+                        <div class="swiper-slide">
+                            <a href="${article.url}"><img src="${article.picBig}" alt=""></a>
+                            <p><a href="${article.url}">${article.title}</a></p>
+                        </div>
+                        <#if article_has_next=false>
+                            </div>
+                            <div id="swiper-pagination" class="swiper-pagination"></div>
+                            <div id="swiper-button-next" class="swiper-button-next"></div>
+                            <div id="swiper-button-prev" class="swiper-button-prev"></div>
+                            </div>
+                        </#if>
+                    </#list>
+                </FOUNDER-XY>
+                <div class="news-list">
+                    <div class="title_1">最新消息</div>
+                    <ul>
+                        <FOUNDER-XY type="articlelist" data="{'columnid':[8021746],'articletype':'all','article_attr':'all','start':'0','count':'100'}">
+                            <#list articles as article>
+                                <#if article.picBig!="" && article.introTitle!="大图">
+                                    <li class="item-normal">
+                                        <a href="${article.url}"><img src="${article.picBig}" alt=""></a>
+                                        <div class="item-text">
+                                            <div class="item-title">
+                                                <a href="${article.url}">${article.title}</a>
+                                            </div>
+                                            <div class="item-info">
+                                                <div class="item-source">${article.source}</div>
+                                                <div class="item-pubdate">${article.pubTime?string("yyyy-MM-dd")}</div>
+                                            </div>
+                                            <#if article.introTitle=="大图" ||article.introTitle=="原创">
+                                                <div class="marker">${article.introTitle}</div>
+                                            </#if>
+                                        </div>
+                                    </li>
+                                    <#elseif article.introTitle=="大图">
+                                        <li class="item-bigpic">
+                                            <div class="item-title">
+                                                <a href="${article.url}">${article.title}</a>
+                                            </div>
+                                            <a href="${article.url}"><img src="${article.picBig}" alt=""></a>
+                                            <div class="item-text">
+                                                <div class="item-info">
+                                                    <div class="item-source">${article.source}</div>
+                                                    <div class="item-pubdate">${article.pubTime?string("yyyy-MM-dd")}</div>
+                                                </div>
+                                                <#if article.introTitle=="大图" ||article.introTitle=="原创">
+                                                    <div class="marker">${article.introTitle}</div>
+                                                </#if>
+                                            </div>
+                                        </li>
+                                        <#else>
+                                            <li class="item-nopic">
+                                                <div class="item-text">
+                                                    <div class="item-title">
+                                                        <a href="${article.url}">${article.title}</a>
+                                                    </div>
+                                                    <div class="item-info">
+                                                        <div class="item-source">${article.source}</div>
+                                                        <div class="item-pubdate">${article.pubTime?string("yyyy-MM-dd")}</div>
+                                                    </div>
+                                                    <#if article.introTitle=="大图" ||article.introTitle=="原创">
+                                                        <div class="marker">${article.introTitle}</div>
+                                                    </#if>
+                                                </div>
+                                            </li>
+                                </#if>
+                            </#list>
+                        </FOUNDER-XY>
+                    </ul>
+                    <div class="more-btn">更 多 </div>
+                </div>
+            </div>
+            <div class="list-right">
+                <FOUNDER-XY type="articlelist" data="{'columnid':[8021747],'articletype':'all','article_attr':'all','start':'0','count':'1'}">
+                    <#list articles as article>
+                        <#if article_index==0>
+                            <div class="grey-block">
+                                <div class="title_1">${article.column}</div>
+                        </#if>
+                        <div class="rp-item-1">
+                            <a href="${article.url}"><img src="${article.picBig}" alt=""></a>
+                            <dl>
+                                <dt><a href="${article.url}">${article.title}</a></dt>
+                                <dd>${article.summary}</dd>
+                            </dl>
+                        </div>
+                        <#if article_has_next==false>
+                            </div>
+                        </#if>
+                    </#list>
+                </FOUNDER-XY>
+                <FOUNDER-XY type="articlelist" data="{'columnid':[8021748],'articletype':'all','article_attr':'all','start':'0','count':'6'}">
+                    <#list articles as article>
+                        <#if article_index==0>
+                            <div class="grey-block">
+                                <div class="title_1">${article.column}</div>
+                                <div class="swiper-2">
+                        </#if>
+                        <div class="rp-item-1">
+                            <a href="${article.url}"><img src="${article.picBig}" alt=""></a>
+                            <dl>
+                                <dt><a href="${article.url}">${article.title}</a></dt>
+                            </dl>
+                        </div>
+                        <#if article_has_next==false>
+                            </div>
+                            </div>
+                        </#if>
+                    </#list>
+                </FOUNDER-XY>
+                <FOUNDER-XY type="articlelist" data="{'columnid':[8021749],'articletype':'all','article_attr':'all','start':'0','count':'6'}">
+                    <#list articles as article>
+                        <#if article_index==0>
+                            <div class="grey-block">
+
+                                <div class="title_1">${article.column}</div>
+                                <div class="rp-item-2">
+                                    <ul>
+                        </#if>
+                        <li><a href="${article.url}">${article.title}</a></li>
+                        <#if article_has_next==false>
+                            </ul>
+                            </div>
+                            </div>
+                        </#if>
+                    </#list>
+                </FOUNDER-XY>
+            </div>
+            <div>
+                <FOUNDER-XY type="articlelist" data="{'columnid':[8021750],'articletype':'all','article_attr':'all','start':'0','count':''}">
+                    <#list articles as article>
+                        <div style="width: 100%;margin: 0 auto 20px">
+                            ${article.summary}
+                        </div>
+                    </#list>
+                </FOUNDER-XY>
+            </div>
+        </div>
+
+        <div id="expand-modules" class="wrapper" style="display: none;"></div>
+    </div>
+    <div class="footer"> 版权所有 中国互联网新闻中心<span></span>电子邮件: news@china.org.cn 电话: 86-10-88828000<span></span>京ICP证 040089号 网络传播视听节目许可证号:0105123
+    </div>
+    <div id="ciic-config" style="display: none;">
+        <FOUNDER-XY type="articlelist" data="{'columnid':[],'articletype':'all','article_attr':'all','start':'0','count':'1'}">
+            <#list articles as article>
+                <p id="banner-desktop">
+                    <span class="banner-images">
+                    ${article.picBig}
+                </span>
+                </p>
+                <p id="banner-mobile">
+                    <span class="banner-images">
+                    ${article.picMiddle}
+                </span>
+                </p>
+                ${article.content}
+            </#list>
+        </FOUNDER-XY>
+    </div>
+    <script src="http://images.china.cn/images1/ch/2020newschina/index.js"></script>
+</body>
+
+</html>

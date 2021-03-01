@@ -8,6 +8,12 @@
         overflow: hidden;
         position: relative;
         margin-bottom: 40px;
+        a {
+            color: #fff;
+            &:hover {
+                text-decoration: none;
+            }
+        }
         .swiper-slide {
             @include focus-pic-size;
             position: relative;
@@ -15,7 +21,7 @@
                 @include focus-pic-size;
             }
             p {
-                background: url(./assets/bg_6.png) left bottom repeat-x;
+                background: url(../assets/bg_6.png) left bottom repeat-x;
                 font-size: 28px;
                 line-height: 56px;
                 height: 56px;
@@ -25,12 +31,6 @@
                 bottom: 0;
                 width: 100%;
                 text-align: center;
-                a {
-                    color: #fff;
-                    &:hover {
-                        text-decoration: none;
-                    }
-                }
             }
         }
         @mixin arr {
@@ -46,18 +46,18 @@
             @include arr;
             right: 0;
             border-radius: 5px 0 0 5px;
-            background: url(./assets/rarr.png) center center no-repeat #000;
+            background: url(../assets/rarr.png) center center no-repeat #000;
             &:hover {
-                background: url(./assets/rarr.png) center center no-repeat #FD3A43;
+                background: url(../assets/rarr.png) center center no-repeat #FD3A43;
             }
         }
         .swiper-button-prev {
             @include arr;
             left: 0;
             border-radius: 0 5px 5px 0;
-            background: url(./assets/larr.png) center center no-repeat #000;
+            background: url(../assets/larr.png) center center no-repeat #000;
             &:hover {
-                background: url(./assets/larr.png) center center no-repeat #FD3A43;
+                background: url(../assets/larr.png) center center no-repeat #FD3A43;
             }
         }
         .swiper-pagination-bullet {
@@ -81,6 +81,9 @@
         margin: 0 auto 0.2rem;
         position: relative;
         overflow: hidden;
+        a {
+            color: #fff;
+        }
         img {
             @include focus-size;
         }
@@ -98,11 +101,8 @@
                 height: 0.5rem;
                 padding: 0.8rem 0 0 0;
                 margin: 0;
-                background: url(./assets/bg_6.png) bottom left repeat-x;
+                background: url(../assets/bg_6.png) bottom left repeat-x;
                 background-size: contain;
-                a {
-                    color: #fff;
-                }
             }
         }
         #swiper-pagination {

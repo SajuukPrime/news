@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Banner from './components/Banner/Banner'
 import Nav from './components/Nav/Nav'
-import Main from './components/main'
+import Index from './components/Index/Index'
 import Footer from './components/Footer/Footer'
 
 import store from './store'
@@ -9,16 +9,21 @@ import store from './store'
 class Page extends Component {
     constructor(props) {
         super(props);
-        console.log(store.getState())
-        this.state = {  }
+        this.state = store.getState()
         
     }
     render() { 
         return ( 
             <>
                 <Banner></Banner>
-                <Nav></Nav>
-                <Main></Main>
+                {
+                    this.state.nav &&
+                    <Nav></Nav>
+                }
+                {
+                    this.state.nav===undefined &&
+                    <Index></Index>
+                }
                 <Footer></Footer>
             </>
          );

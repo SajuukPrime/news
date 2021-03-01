@@ -3,35 +3,7 @@ class domToObject {
     constructor(el) {
         this.el = document.querySelectorAll(el)[0];
         this.output = {
-            'config': {
-                'index': {
-                    'headline': {
-                        'id': '',
-                        'mode': 'headline'
-                    },
-                    'left-swiper': {
-                        'id': '',
-                        'mode': 'left-swiper'
-                    },
-                    'left-list': {
-                        'id': '',
-                        'mode': 'left-list'
-                    },
-                    'right-list-pic': {
-                        'id': '',
-                        'mode': 'right-list-pic'
-                    },
-                    'right-list-text': {
-                        'id': '',
-                        'mode': 'right-list-text'
-                    }
-                }
-            },
-            'articleData': {
-                '_8019911': {},
-                '_8019912': {},
-                '_8019913': {}
-            }
+            config:{}
         }
         this.init();
         return this.output;
@@ -44,17 +16,26 @@ class domToObject {
             _.forEach([desktop, mobile], item => {
                 const name = _.replace(item.getAttribute('id'), 'banner-', '')
                 const imagesInfo = _.trim(item.querySelectorAll('.banner-images')[0].innerText);
-                // const colorInfo = _.trim(item.querySelectorAll('.banner-color')[0].innerText);
                 banner[name] = {};
                 if (imagesInfo) {
-                    banner[name]['background-image'] = `url(${imagesInfo})`
+                    banner[name]['backgroundImage'] = `url(${imagesInfo})`
                 }
-                // if (colorInfo) {
-                //     banner[name]['background-color'] = colorInfo
-                // }
             })
             this.output['banner'] = banner;
         }
+    }
+    getIndex(){
+        const elIndex = this.el.querySelector('#index-columns');
+        const Index={}
+        _.forEach(elIndex.querySelectorAll('div'),item=>{
+            const thisItem={};
+            const thisItemInfo = _.split(item.innerText, ',', 3);
+            thisItem['id'] = thisItemInfo[0];
+            thisItem['name'] = thisItemInfo[1];
+            thisItem['mode'] = thisItemInfo[2];
+            Index[thisItem['mode']]=thisItem
+        })
+        this.output.config.index = Index;
     }
     getNav() {
         const elNav = this.el.querySelectorAll('#nav')[0];
@@ -69,6 +50,7 @@ class domToObject {
                     const columnInfo = _.split(item.innerText, ',', 2)
                     column['id'] = columnInfo[0]
                     column['text'] = columnInfo[1];
+                    column['path'] = `/node_${columnInfo[0]}`
                     nav['columns'].push(column)
                 })
             }
@@ -78,6 +60,10 @@ class domToObject {
             }
             this.output['nav'] = nav;
         }
+    }
+    getIframes(){
+        const iframeDom=document.querySelector("#iframe-list").innerHTML;
+        this.output.config.iframeDom = _.trim(iframeDom)
     }
     getModules() {
         const domList = this.el.querySelectorAll("#article-list .content");
@@ -90,13 +76,15 @@ class domToObject {
             obj["columnName"] = temp[2]
             modules.push(obj)
         });
-        this.output["modules"] = modules;
+        this.output.config.expand_components = modules;
 
     }
     init() {
         this.getBanner()
         this.getNav()
+        this.getIndex()
         this.getModules()
+        this.getIframes()
     }
 }
 
